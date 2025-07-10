@@ -15,12 +15,26 @@ import ClassVsFunction from "./13-ClassVsFunction";
 import UseState from "./14-UseState";
 import UseEffect from "./15-UseEffect";
 import AdvanceStateEffect from "./16-AdvanceStateEffect";
+import HooksRules from "./17-HooksRules";
+import CustomHooks from "./18-CustomHooks";
+import TodosUseState from "./19-TodosUseState";
+import UseReducer from "./20-UseReducer";
+import TodosUseReducer from "./21-TodosUseReducer";
+import UseMemo from "./22-UseMemo";
+import HOCApp from "./HOC/App";
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <AdvanceStateEffect />
+        <HOCApp />
+        {/* <UseMemo /> */}
+        {/* <TodosUseReducer /> */}
+        {/* <UseReducer /> */}
+        {/* <TodosUseState /> */}
+        {/* <CustomHooks /> */}
+        {/* <HooksRules /> */}
+        {/* <AdvanceStateEffect /> */}
         {/* <UseEffect /> */}
         {/* <UseState /> */}
         {/* <ClassVsFunction /> */}
