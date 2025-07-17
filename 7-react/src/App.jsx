@@ -22,12 +22,18 @@ import UseReducer from "./20-UseReducer";
 import TodosUseReducer from "./21-TodosUseReducer";
 import UseMemo from "./22-UseMemo";
 import HOCApp from "./HOC/App";
+import Memo from "./23-Memo";
+import UseRef from "./24-UseRef";
+import UseCallback from "./25-UseCallback";
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <HOCApp />
+        <UseCallback />
+        {/* <UseRef /> */}
+        {/* <Memo /> */}
+        {/* <HOCApp /> */}
         {/* <UseMemo /> */}
         {/* <TodosUseReducer /> */}
         {/* <UseReducer /> */}
