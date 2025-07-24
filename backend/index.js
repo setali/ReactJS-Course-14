@@ -11,27 +11,35 @@ const user = {
   family: "Mousavi",
 };
 
-app.get("/api/user", (req, res) => {
-  setTimeout(() => {
-    res.json(user);
-  }, 500);
+const token = "hdjbankl;cksad;lnksbdhvbjns;dasdnasdjawqdskdndjfnsl";
+
+app.get("/api/user", async (req, res) => {
+  await delay(1500);
+
+  if (req.headers.authorization !== token) {
+    return res.status(403).json({ error: "Unauthorized" });
+  }
+
+  res.json(user);
 });
 
 app.post("/api/login", async (req, res) => {
-await delay(1500)
+  await delay(1500);
   const { username, password } = req.body;
   if (username === "admin" && password === "admin") {
-    return res.json(user);
+    return res.json({
+      ...user,
+      token,
+    });
   }
 
-  res.status(404).json({ error: "Username or Password are incorrect" });
+  res.status(403).json({ error: "Username or Password is incorrect" });
 });
 
 app.listen(3000, () => {
   console.log("Server is running");
 });
 
-
 function delay(time) {
-    return new Promise((resolve) => setTimeout(resolve, time))
+  return new Promise((resolve) => setTimeout(resolve, time));
 }

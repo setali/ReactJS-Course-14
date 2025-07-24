@@ -1,17 +1,14 @@
-import React, { useContext } from "react";
-import { AuhContext } from "../../App";
-import LoginForm from "../auth/LoginForm";
+import LoginForm from "@/components/auth/LoginForm";
+import AuhContext from "@/contexts/AuthContext";
+import useAuth from "@/hooks/useAuth";
 
 export default function Content() {
-  const { user, isLoggedIn } = useContext(AuhContext);
+  const { user, isLoggedIn } = useAuth();
 
   return (
     <main className="border p-2 w-full">
-      {isLoggedIn ? (
-        <div className="text-blue-500">Welcome {user.name}</div>
-      ) : (
-        <LoginForm />
-      )}
+      <h2 className="text-2xl">Homepage</h2>
+      {isLoggedIn && <div className="text-blue-500">Welcome {user.name}</div>}
     </main>
   );
 }

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useId } from "react";
 import { useForm } from "react-hook-form";
-import { AuhContext } from "../../App";
 import { useState } from "react";
+import AuhContext from "@/contexts/AuthContext";
 
 export default function LoginForm() {
   const { login } = useContext(AuhContext);
@@ -16,11 +16,12 @@ export default function LoginForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    setIsLoading(true)
-    login(data).catch((error) =>
-      setError(error?.response?.data?.error || "There is an error")
-    )
-    .finally(() => setIsLoading(false));
+    setIsLoading(true);
+    login(data)
+      .catch((error) =>
+        setError(error?.response?.data?.error || "There is an error")
+      )
+      .finally(() => setIsLoading(false));
   };
 
   const usernameId = useId();
@@ -55,7 +56,9 @@ export default function LoginForm() {
         </div>
         <div>
           {error && <div className="text-red-400 text-xs">{error}</div>}
-          <button disabled={isLoading} type="submit">{isLoading ? 'Login ...' : 'Login'}</button>
+          <button disabled={isLoading} type="submit">
+            {isLoading ? "Login ..." : "Login"}
+          </button>
         </div>
       </div>
     </form>
