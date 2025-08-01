@@ -1,18 +1,20 @@
 import LoginForm from "@/components/auth/LoginForm";
-import { Navigate } from "react-router";
+import { Navigate, useLocation } from "react-router";
 import useUser from "@/hooks/useUser";
 
 export default function LoginPage() {
   const { isLoading, isLoggedIn } = useUser();
 
+  const location = useLocation();
+
+  console.log(location);
+
   if (isLoading) {
     return "Loading ....";
   }
 
-  console.log("isLoggedIn", isLoggedIn);
-
   if (isLoggedIn) {
-    return <Navigate to="/" />;
+    return <Navigate to={location.state?.from || "/"} />;
   } else {
     return (
       <main className="border p-2 w-full">

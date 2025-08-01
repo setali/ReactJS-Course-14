@@ -1,9 +1,7 @@
 import request from "@/tools/request";
-import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router";
 
 export default function Post() {
   const [post, setPost] = useState({});

@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { useId } from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import AuhContext from "@/contexts/AuthContext";
+import useUser from "@/hooks/useUser";
 
 export default function LoginForm() {
-  const { login } = useContext(AuhContext);
+  const { login } = useUser();
   const [isLoading, setIsLoading] = useState(false);
 
   const [error, setError] = useState();

@@ -1,9 +1,7 @@
-import LoginForm from "@/components/auth/LoginForm";
-import AuhContext from "@/contexts/AuthContext";
-import useAuth from "@/hooks/useAuth";
+import useUser from "@/hooks/useUser";
 
 export default function Content() {
-  const { user, isLoggedIn } = useAuth();
+  const { user, isLoggedIn } = useUser();
 
   return (
     <main className="border p-2 w-full">

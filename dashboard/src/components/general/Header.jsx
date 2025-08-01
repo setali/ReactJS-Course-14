@@ -1,9 +1,11 @@
-import { useContext } from "react";
-import AuhContext from "@/contexts/AuthContext";
 import { Link } from "react-router";
+import useUser from "@/hooks/useUser";
+import { useLocation } from "react-router";
 
 export default function Header() {
-  const { user, isLoading, isLoggedIn, logout } = useContext(AuhContext);
+  const { user, isLoading, isLoggedIn, logout } = useUser();
+
+  const location = useLocation();
 
   return (
     <div className="border p-2 flex justify-between">
@@ -24,7 +26,9 @@ export default function Header() {
         </div>
       ) : (
         <div>
-          <Link to="/login">Login</Link>
+          <Link to="/login" state={{ from: location.pathname }}>
+            Login
+          </Link>
         </div>
       )}
     </div>

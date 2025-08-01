@@ -24,8 +24,6 @@ function useAuth() {
     setUser({});
   }
 
-  console.log("useAuth", isLoggedIn);
-
   useEffect(() => {
     const token = getToken();
 
