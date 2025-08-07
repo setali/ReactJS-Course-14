@@ -1,22 +1,15 @@
-import { configureStore, createReducer, createAction } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-// function createAction(type) {
-//   function actionFunction(payload) {
-//     return { type, payload };
-//   }
+const { reducer, actions } = createSlice({
+  name: "counter",
+  initialState: 10,
+  reducers: {
+    increase: (state, { payload }) => state + payload,
+    decrease: (state, { payload }) => state - payload,
+  },
+});
 
-//   actionFunction.type = type;
-//   return actionFunction;
-// }
-
-const increase = createAction("INC");
-const decrease = createAction("DEC");
-
-const reducer = createReducer(10, (builder) =>
-  builder
-    .addCase(increase, (state, { payload }) => state + payload)
-    .addCase(decrease, (state, { payload }) => state - payload)
-);
+const { increase, decrease } = actions;
 
 const store = configureStore({ reducer });
 
